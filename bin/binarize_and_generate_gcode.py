@@ -5,8 +5,18 @@ from pathlib import Path
 from skimage import io, transform
 from matplotlib import pyplot as plt
 
-from gcode_generator.cad import *
-from gcode_generator.image_filters import *
+
+try:
+    from gcode_generator.cad import *
+    from gcode_generator.image_filters import *
+except:
+    import os
+    import sys
+    current_dir = Path(__file__).parent
+    sys.path.append(os.path.join(current_dir, ".."))
+    print(sys.path)
+    from gcode_generator.cad import *
+    from gcode_generator.image_filters import *
 
 
 def parse_args():
