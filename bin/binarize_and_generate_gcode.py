@@ -43,15 +43,15 @@ def main(input_image:Path, output_gcode:Path):
     # im = transform.resize(arr, (400,400))
     filtered = binarize(arr)
 
-    n_contours = 50
+    n_contours = 1
     canvas = Canvas()
     binary_img = canvas.scale_image_to_fit(filtered)
-    paths = compute_n_contours(binary_img, n_contours, 0.3, 0.5)
+    paths = compute_n_contours(binary_img, n_contours, 0.12, 0.5)
     for i in range(len(paths)):
         xs, ys = zip(*paths[i])
         plt.plot(xs, ys)
-    plt.show()
-    gcode = write_gcode(paths, canvas, pen_up=120, pen_down=135)
+    # plt.show()
+    gcode = write_gcode(paths, canvas, pen_up=135, pen_down=148)
     with open(output_gcode, "w") as f:
         f.write(gcode)
     plt.imshow(binary_img)

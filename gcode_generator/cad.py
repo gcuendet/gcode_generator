@@ -19,13 +19,13 @@ class Canvas:
         y [1/10 degrees] in [-450, 450] 
         """
         self.xmin = 0  # 1/10 degrees
-        self.xmax = 3600  # 1/10 degrees
+        self.xmax = 1800  # 1/10 degrees
         self.ymin = -450  # 1/10 degrees
         self.ymax = 450  # 1/10 degrees
         self.xmin_mm = 0  # mm
-        self.xmax_mm = 160  # mm
-        self.ymin_mm = -30  # mm
-        self.ymax_mm = 30  # mm
+        self.xmax_mm = 60  # mm
+        self.ymin_mm = -25  # mm
+        self.ymax_mm = 25  # mm
         # pixel per mm
         # assumes a sphere
         self.ppmm = (self.xmax - self.xmin) / (self.xmax_mm - self.xmin_mm)
